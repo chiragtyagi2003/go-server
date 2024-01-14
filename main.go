@@ -27,18 +27,6 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func formHanlder(w http.ResponseWriter, r *http.Request) {
 
-	// check the path
-	if r.URL.Path != "/form" {
-		http.Error(w, "404 not found", http.StatusNotFound)
-		return
-	}
-
-	// by default the method of request is Get
-	if r.Method != "POST" {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
 	// parse the form data
 	err := r.ParseForm()
 	if err != nil {
